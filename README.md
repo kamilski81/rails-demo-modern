@@ -11,7 +11,17 @@ Things you may want to cover:
 
 * Configuration
 
-* Database creation
+* Database creation 
+** Create a role inside DB on local machine to match the database name in `config/database.yml`:
+```psql
+psql -p 1717 -U postgres; (If using DBNgin, no password)
+create role "rails_modern" superuser login createdb;
+```
+
+** Then, create the databases:
+```sh
+bundle exec rake db:create; # Wil create development & test databases
+```
 
 * Database initialization
 
@@ -22,3 +32,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
